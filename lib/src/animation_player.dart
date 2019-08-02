@@ -9,10 +9,12 @@ class AnimationPlayer extends StatefulWidget {
     Key key,
     @required this.builder,
     this.duration = const Duration(milliseconds: 2000),
+    this.autoReset = false,
   }) : super(key: key);
 
   final AnimationBuilder builder;
   final Duration duration;
+  final bool autoReset;
 
   @override
   _AnimationPlayerState createState() => _AnimationPlayerState();
@@ -92,9 +94,13 @@ class _AnimationPlayerState extends State<AnimationPlayer>
           _animation.stop();
           _animationForPlayButton.reverse();
         } else {
-          _animation.forward().then<void>((_) {
-            _animation.reset();
-            _animationForPlayButton.reverse();
+          _animation
+              .forward(from: _animation.isCompleted ? 0 : null)
+              .then<void>((_) {
+            if (widget.autoReset) {
+              _animation.reset();
+              _animationForPlayButton.reverse();
+            }
           });
           _animationForPlayButton.forward();
         }
