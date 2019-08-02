@@ -1,0 +1,15 @@
+name: animation_player
+description: Animation player.
+version: 1.0.0
+author: Masayuki Ono <mono0926@gmail.com>
+homepage: https://github.com/mono0926/animation_player
+environment:
+  sdk: ">=2.1.0 <3.0.0"
+dependencies:
+  flutter:
+    sdk: flutter
+  intl: ^0.15.8
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+flutter:
