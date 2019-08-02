@@ -7,7 +7,7 @@ typedef AnimationBuilder = Widget Function(
 class AnimationPlayer extends StatefulWidget {
   const AnimationPlayer({
     Key key,
-    this.builder,
+    @required this.builder,
   }) : super(key: key);
 
   final AnimationBuilder builder;
