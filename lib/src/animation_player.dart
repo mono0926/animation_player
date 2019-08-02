@@ -8,9 +8,11 @@ class AnimationPlayer extends StatefulWidget {
   const AnimationPlayer({
     Key key,
     @required this.builder,
+    this.duration = const Duration(milliseconds: 2000),
   }) : super(key: key);
 
   final AnimationBuilder builder;
+  final Duration duration;
 
   @override
   _AnimationPlayerState createState() => _AnimationPlayerState();
@@ -26,7 +28,7 @@ class _AnimationPlayerState extends State<AnimationPlayer>
     super.initState();
     _animation = AnimationController(
       vsync: this,
-      duration: Duration(milliseconds: 2000),
+      duration: widget.duration,
     );
     _animationForPlayButton = AnimationController(
       vsync: this,
