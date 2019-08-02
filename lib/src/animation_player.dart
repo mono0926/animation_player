@@ -32,7 +32,7 @@ class _AnimationPlayerState extends State<AnimationPlayer>
     );
     _animationForPlayButton = AnimationController(
       vsync: this,
-      duration: Duration(milliseconds: 200),
+      duration: const Duration(milliseconds: 200),
     );
 
     _animation.addListener(() {
