@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
+import 'package:progress_animation_builder/progress_animation_builder.dart';
 
 typedef AnimationBuilder = Widget Function(
     BuildContext context, Animation<double> animation);
@@ -21,9 +22,9 @@ class AnimationPlayer extends StatefulWidget {
 }
 
 class _AnimationPlayerState extends State<AnimationPlayer>
-    with TickerProviderStateMixin {
+    with SingleTickerProviderStateMixin {
   AnimationController _animation;
-  AnimationController _animationForPlayButton;
+  var _isPlaying = false;
 
   @override
   void initState() {
@@ -32,14 +33,10 @@ class _AnimationPlayerState extends State<AnimationPlayer>
       vsync: this,
       duration: widget.duration,
     );
-    _animationForPlayButton = AnimationController(
-      vsync: this,
-      duration: const Duration(milliseconds: 200),
-    );
 
     _animation.addListener(() {
       if (!_animation.isAnimating) {
-        _animationForPlayButton.reverse();
+        togglePlayButton(isPlaying: false);
       }
     });
   }
@@ -47,7 +44,6 @@ class _AnimationPlayerState extends State<AnimationPlayer>
   @override
   void dispose() {
     _animation.dispose();
-    _animationForPlayButton.dispose();
     super.dispose();
   }
 
@@ -84,25 +80,29 @@ class _AnimationPlayerState extends State<AnimationPlayer>
   Widget _buildPlayButton() {
     return IconButton(
       iconSize: 44,
-      icon: AnimatedIcon(
-        color: Theme.of(context).accentColor,
-        icon: AnimatedIcons.play_pause,
-        progress: _animationForPlayButton,
+      icon: ProgressAnimationBuilder(
+        value: _isPlaying ? 1 : 0,
+        duration: const Duration(milliseconds: 200),
+        builder: (context, animation) => AnimatedIcon(
+          color: Theme.of(context).accentColor,
+          icon: AnimatedIcons.play_pause,
+          progress: animation,
+        ),
       ),
       onPressed: () {
         if (_animation.isAnimating) {
           _animation.stop();
-          _animationForPlayButton.reverse();
+          togglePlayButton(isPlaying: false);
         } else {
           _animation
               .forward(from: _animation.isCompleted ? 0 : null)
               .then<void>((_) {
             if (widget.autoReset) {
               _animation.reset();
-              _animationForPlayButton.reverse();
+              togglePlayButton(isPlaying: false);
             }
           });
-          _animationForPlayButton.forward();
+          togglePlayButton(isPlaying: true);
         }
       },
     );
@@ -132,5 +132,11 @@ class _AnimationPlayerState extends State<AnimationPlayer>
         );
       },
     );
+  }
+
+  void togglePlayButton({@required bool isPlaying}) {
+    setState(() {
+      _isPlaying = isPlaying;
+    });
   }
 }

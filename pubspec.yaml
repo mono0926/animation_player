@@ -9,6 +9,7 @@ dependencies:
   flutter:
     sdk: flutter
   intl: ^0.15.8
+  progress_animation_builder: ^1.0.0
 dev_dependencies:
   flutter_test:
     sdk: flutter
