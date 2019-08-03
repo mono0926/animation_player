@@ -9,6 +9,7 @@ dependencies:
   animation_player:
     path: ../
   cupertino_icons: ^0.1.2
+  progress_animation_builder:
 dev_dependencies:
   flutter_test:
     sdk: flutter

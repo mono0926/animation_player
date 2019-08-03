@@ -1,5 +1,8 @@
+import 'dart:async';
+
 import 'package:animation_player/animation_player.dart';
 import 'package:flutter/material.dart';
+import 'package:progress_animation_builder/progress_animation_builder.dart';
 
 void main() => runApp(const App());
 
@@ -13,8 +16,25 @@ class App extends StatelessWidget {
   }
 }
 
-class _Home extends StatelessWidget {
+class _Home extends StatefulWidget {
   const _Home({Key key}) : super(key: key);
+
+  @override
+  __HomeState createState() => __HomeState();
+}
+
+class __HomeState extends State<_Home> {
+  var _isInitial = false;
+
+  @override
+  void initState() {
+    super.initState();
+
+    Timer.periodic(Duration(seconds: 3), (_) {
+      setState(() => _isInitial = !_isInitial);
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -26,9 +46,15 @@ class _Home extends StatelessWidget {
         itemBuilder: (context, index) {
           final icon = _icons[index];
           return ListTile(
-            title: AnimatedIcon(
-              icon: icon,
-              progress: const AlwaysStoppedAnimation<double>(0),
+            title: ProgressAnimationBuilder(
+              value: _isInitial ? 0 : 1,
+              duration: Duration(milliseconds: 1000),
+              builder: (context, animation) {
+                return AnimatedIcon(
+                  icon: icon,
+                  progress: animation,
+                );
+              },
             ),
             trailing: Icon(Icons.chevron_right),
             onTap: () {
