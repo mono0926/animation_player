@@ -112,23 +112,21 @@ class _AnimationPlayerState extends State<AnimationPlayer>
     return AnimatedBuilder(
       animation: _animation,
       builder: (context, child) {
-        return LayoutBuilder(
-          builder: (context, constraints) => Stack(
-            overflow: Overflow.visible,
-            children: [
-              Positioned(
-                top: -16,
-                left: 16 + (constraints.maxWidth - 48) * _animation.value,
-                child: Text(
-                  NumberFormat.compact().format(_animation.value),
-                ),
+        return Row(
+          children: [
+            SizedBox(
+              width: 32,
+              child: Text(
+                NumberFormat('0.00').format(_animation.value),
               ),
-              Slider(
+            ),
+            Expanded(
+              child: Slider(
                 value: _animation.value,
                 onChanged: (value) => _animation.value = value,
               ),
-            ],
-          ),
+            ),
+          ],
         );
       },
     );
