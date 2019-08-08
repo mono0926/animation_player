@@ -67,7 +67,7 @@ class _Check extends CustomPainter {
     final center = Offset(radius, radius);
     _paint
       ..strokeWidth = radius / 10
-      ..color = _colorTween.lerp(progress);
+      ..color = _colorTween.transform(progress);
 
     canvas.drawArc(
       Rect.fromCircle(center: center, radius: radius),
