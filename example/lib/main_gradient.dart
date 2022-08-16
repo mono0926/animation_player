@@ -7,8 +7,8 @@ class App extends StatelessWidget {
   const App({Key key}) : super(key: key);
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      home: const _Home(),
+    return const MaterialApp(
+      home: _Home(),
     );
   }
 }
@@ -32,7 +32,7 @@ class _Home extends StatelessWidget {
                 child: child,
               ),
             ),
-            child: SizedBox.expand(),
+            child: const SizedBox.expand(),
           ),
         ),
       ),

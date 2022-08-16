@@ -5,11 +5,11 @@ publish_to: none
 environment:
   sdk: '>=2.1.0 <3.0.0'
 dependencies:
-  flutter:
-    sdk: flutter
   animation_player:
     path: ../
   cupertino_icons:
+  flutter:
+    sdk: flutter
   progress_animation_builder:
 dev_dependencies:
   flutter_test:

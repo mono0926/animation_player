@@ -9,8 +9,8 @@ class App extends StatelessWidget {
   const App({Key key}) : super(key: key);
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      home: const _Home(),
+    return const MaterialApp(
+      home: _Home(),
     );
   }
 }
@@ -25,7 +25,7 @@ class _Home extends StatelessWidget {
       ),
       body: SafeArea(
         child: AnimationPlayer(
-          duration: Duration(milliseconds: 400),
+          duration: const Duration(milliseconds: 400),
           builder: (context, animation) => AnimatedBuilder(
             animation: animation.drive(CurveTween(curve: Curves.easeInOut)),
             builder: (context, child) => AspectRatio(

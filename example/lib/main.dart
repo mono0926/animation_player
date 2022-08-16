@@ -10,8 +10,8 @@ class App extends StatelessWidget {
   const App({Key key}) : super(key: key);
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      home: const _Home(),
+    return const MaterialApp(
+      home: _Home(),
     );
   }
 }
@@ -30,7 +30,7 @@ class __HomeState extends State<_Home> {
   void initState() {
     super.initState();
 
-    Timer.periodic(Duration(seconds: 3), (_) {
+    Timer.periodic(const Duration(seconds: 3), (_) {
       setState(() => _isInitial = !_isInitial);
     });
   }
@@ -48,7 +48,7 @@ class __HomeState extends State<_Home> {
           return ListTile(
             title: ProgressAnimationBuilder(
               value: _isInitial ? 0 : 1,
-              duration: Duration(milliseconds: 1000),
+              duration: const Duration(milliseconds: 1000),
               builder: (context, animation) {
                 return AnimatedIcon(
                   icon: icon,
@@ -56,7 +56,7 @@ class __HomeState extends State<_Home> {
                 );
               },
             ),
-            trailing: Icon(Icons.chevron_right),
+            trailing: const Icon(Icons.chevron_right),
             onTap: () {
               Navigator.of(context).push<void>(
                 MaterialPageRoute(

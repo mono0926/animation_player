@@ -84,7 +84,7 @@ class _AnimationPlayerState extends State<AnimationPlayer>
         value: _isPlaying ? 1 : 0,
         duration: const Duration(milliseconds: 200),
         builder: (context, animation) => AnimatedIcon(
-          color: Theme.of(context).accentColor,
+          color: Theme.of(context).colorScheme.secondary,
           icon: AnimatedIcons.play_pause,
           progress: animation,
         ),
