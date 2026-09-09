@@ -1,3 +1,9 @@
+## [2.0.0]
+
+- Migrate to Dart 3 and sound null safety.
+- Add AI Agent Skill (`animation_player-animations`).
+- Expand package description.
+
 ## [1.2.0]
 
 * Add autoReset parameter

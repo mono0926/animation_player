@@ -1,6 +1,6 @@
 name: animation_player
 description: A customizable animation player widget for controlling and previewing Flutter animations.
-version: 1.2.0+2
+version: 2.0.0
 homepage: https://github.com/mono0926/animation_player
 environment:
   sdk: ^3.0.0
