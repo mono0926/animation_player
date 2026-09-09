@@ -7,11 +7,11 @@ typedef AnimationBuilder = Widget Function(
 
 class AnimationPlayer extends StatefulWidget {
   const AnimationPlayer({
-    Key key,
-    @required this.builder,
+    super.key,
+    required this.builder,
     this.duration = const Duration(milliseconds: 2000),
     this.autoReset = false,
-  }) : super(key: key);
+  });
 
   final AnimationBuilder builder;
   final Duration duration;
@@ -23,7 +23,7 @@ class AnimationPlayer extends StatefulWidget {
 
 class _AnimationPlayerState extends State<AnimationPlayer>
     with SingleTickerProviderStateMixin {
-  AnimationController _animation;
+  late final AnimationController _animation;
   var _isPlaying = false;
 
   @override
@@ -132,7 +132,7 @@ class _AnimationPlayerState extends State<AnimationPlayer>
     );
   }
 
-  void togglePlayButton({@required bool isPlaying}) {
+  void togglePlayButton({required bool isPlaying}) {
     setState(() {
       _isPlaying = isPlaying;
     });
