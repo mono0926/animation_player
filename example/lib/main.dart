@@ -7,7 +7,7 @@ import 'package:progress_animation_builder/progress_animation_builder.dart';
 void main() => runApp(const App());
 
 class App extends StatelessWidget {
-  const App({Key key}) : super(key: key);
+  const App({super.key});
   @override
   Widget build(BuildContext context) {
     return const MaterialApp(
@@ -17,7 +17,7 @@ class App extends StatelessWidget {
 }
 
 class _Home extends StatefulWidget {
-  const _Home({Key key}) : super(key: key);
+  const _Home();
 
   @override
   __HomeState createState() => __HomeState();
@@ -76,9 +76,8 @@ class __HomeState extends State<_Home> {
 
 class _DetailPage extends StatelessWidget {
   const _DetailPage({
-    Key key,
-    @required this.iconData,
-  }) : super(key: key);
+    required this.iconData,
+  });
 
   final AnimatedIconData iconData;
 

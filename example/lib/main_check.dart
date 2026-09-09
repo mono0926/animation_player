@@ -6,7 +6,7 @@ import 'package:flutter/material.dart';
 void main() => runApp(const App());
 
 class App extends StatelessWidget {
-  const App({Key key}) : super(key: key);
+  const App({super.key});
   @override
   Widget build(BuildContext context) {
     return const MaterialApp(
@@ -16,7 +16,7 @@ class App extends StatelessWidget {
 }
 
 class _Home extends StatelessWidget {
-  const _Home({Key key}) : super(key: key);
+  const _Home();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -48,7 +48,7 @@ class _Home extends StatelessWidget {
 
 class _Check extends CustomPainter {
   _Check({
-    @required this.progress,
+    required this.progress,
   }) : super();
   final double progress;
 
@@ -67,7 +67,7 @@ class _Check extends CustomPainter {
     final center = Offset(radius, radius);
     _paint
       ..strokeWidth = radius / 10
-      ..color = _colorTween.transform(progress);
+      ..color = _colorTween.transform(progress)!;
 
     canvas.drawArc(
       Rect.fromCircle(center: center, radius: radius),

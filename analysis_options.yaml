@@ -1,12 +1,8 @@
 analyzer:
-  strong-mode:
-    implicit-casts: false
-    implicit-dynamic: false
-  #  errors:
-  #    todo: warning
   exclude:
     - lib/l10n/messages_*.dart
     - ios/**
+    - build/**
 
 linter:
   rules:
@@ -64,7 +60,6 @@ linter:
     - flutter_style_todos
     - hash_and_equals
     - implementation_imports
-    - invariant_booleans # too many false positives: https://github.com/dart-lang/linter/issues/811
     - iterable_contains_unrelated_type
     - join_return_with_assignment # not yet tested
     - library_names
@@ -94,7 +89,6 @@ linter:
     - prefer_const_literals_to_create_immutables
     - prefer_constructors_over_static_methods # not yet tested
     - prefer_contains
-    - prefer_equal_for_default_values
 #    - prefer_expression_function_bodies # conflicts with https://github.com/flutter/flutter/wiki/Style-guide-for-Flutter-repo#consider-using--for-short-functions-and-methods
     - prefer_final_fields
     - prefer_final_locals
