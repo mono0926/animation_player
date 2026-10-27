@@ -2,11 +2,15 @@ import 'package:intl/intl.dart';
 import 'package:material_ui/material_ui.dart';
 import 'package:progress_animation_builder/progress_animation_builder.dart';
 
+/// Signature for a function that builds an animated widget driven by
+/// [animation].
 typedef AnimationBuilder = Widget Function(
   BuildContext context,
   Animation<double> animation,
 );
 
+/// A widget that provides a play/pause button and interactive slider to preview
+/// and scrub through an [Animation] built by [builder].
 class const AnimationPlayer({
   super.key,
   required final AnimationBuilder builder,
