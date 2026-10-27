@@ -1,27 +1,24 @@
-import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
+import 'package:material_ui/material_ui.dart';
 import 'package:progress_animation_builder/progress_animation_builder.dart';
 
 typedef AnimationBuilder = Widget Function(
-    BuildContext context, Animation<double> animation);
+  BuildContext context,
+  Animation<double> animation,
+);
 
-class AnimationPlayer extends StatefulWidget {
-  const AnimationPlayer({
-    super.key,
-    required this.builder,
-    this.duration = const Duration(milliseconds: 2000),
-    this.autoReset = false,
-  });
-
-  final AnimationBuilder builder;
-  final Duration duration;
-  final bool autoReset;
-
+class const AnimationPlayer({
+  super.key,
+  required final AnimationBuilder builder,
+  final Duration duration = const Duration(milliseconds: 2000),
+  final bool autoReset = false,
+}) extends StatefulWidget {
   @override
-  _AnimationPlayerState createState() => _AnimationPlayerState();
+  State<AnimationPlayer> createState() => _AnimationPlayerState();
 }
 
-class _AnimationPlayerState extends State<AnimationPlayer>
+class _AnimationPlayerState()
+    extends State<AnimationPlayer>
     with SingleTickerProviderStateMixin {
   late final AnimationController _animation;
   var _isPlaying = false;
@@ -67,7 +64,7 @@ class _AnimationPlayerState extends State<AnimationPlayer>
   }
 
   Widget _buildTarget() {
-    return Container(
+    return DecoratedBox(
       decoration: BoxDecoration(
         border: Border.all(
           width: 1 / MediaQuery.of(context).devicePixelRatio,
@@ -97,11 +94,11 @@ class _AnimationPlayerState extends State<AnimationPlayer>
           _animation
               .forward(from: _animation.isCompleted ? 0 : null)
               .then<void>((_) {
-            if (widget.autoReset) {
-              _animation.reset();
-              togglePlayButton(isPlaying: false);
-            }
-          });
+                if (widget.autoReset) {
+                  _animation.reset();
+                  togglePlayButton(isPlaying: false);
+                }
+              });
           togglePlayButton(isPlaying: true);
         }
       },

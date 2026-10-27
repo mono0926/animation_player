@@ -1,13 +1,12 @@
 import 'dart:async';
 
 import 'package:animation_player/animation_player.dart';
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 import 'package:progress_animation_builder/progress_animation_builder.dart';
 
 void main() => runApp(const App());
 
-class App extends StatelessWidget {
-  const App({super.key});
+class const App({super.key}) extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const MaterialApp(
@@ -16,14 +15,12 @@ class App extends StatelessWidget {
   }
 }
 
-class _Home extends StatefulWidget {
-  const _Home();
-
+class const _Home() extends StatefulWidget {
   @override
   __HomeState createState() => __HomeState();
 }
 
-class __HomeState extends State<_Home> {
+class __HomeState() extends State<_Home> {
   var _isInitial = false;
 
   @override
@@ -68,19 +65,15 @@ class __HomeState extends State<_Home> {
             },
           );
         },
-        separatorBuilder: (_, __) => const Divider(height: 0),
+        separatorBuilder: (_, _) => const Divider(height: 0),
       ),
     );
   }
 }
 
-class _DetailPage extends StatelessWidget {
-  const _DetailPage({
-    required this.iconData,
-  });
-
-  final AnimatedIconData iconData;
-
+class const _DetailPage({
+  required final AnimatedIconData iconData,
+}) extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final targetSize = MediaQuery.of(context).size.width * 2 / 3;
@@ -115,5 +108,5 @@ const _icons = <AnimatedIconData>[
   AnimatedIcons.pause_play,
   AnimatedIcons.play_pause,
   AnimatedIcons.search_ellipsis,
-  AnimatedIcons.view_list
+  AnimatedIcons.view_list,
 ];

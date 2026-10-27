@@ -26,7 +26,7 @@ description: >-
 
 ```dart
 import 'package:animation_player/animation_player.dart';
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 
 class AnimatedIconPreviewScreen extends StatelessWidget {
   const AnimatedIconPreviewScreen({super.key});
@@ -61,7 +61,7 @@ class AnimatedIconPreviewScreen extends StatelessWidget {
 
 ```dart
 import 'package:animation_player/animation_player.dart';
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 
 class CustomCardTransition extends StatelessWidget {
   const CustomCardTransition({super.key});

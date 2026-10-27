@@ -1,10 +1,9 @@
 import 'package:animation_player/animation_player.dart';
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 
 void main() => runApp(const App());
 
-class App extends StatelessWidget {
-  const App({super.key});
+class const App({super.key}) extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const MaterialApp(
@@ -13,8 +12,7 @@ class App extends StatelessWidget {
   }
 }
 
-class _Home extends StatelessWidget {
-  const _Home();
+class const _Home() extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -40,17 +38,14 @@ class _Home extends StatelessWidget {
   }
 }
 
-class Sky extends CustomPainter {
-  const Sky({
-    required this.radius,
-  }) : super();
-  final double radius;
-
+class const Sky({
+  required final double radius,
+}) extends CustomPainter {
+  this : super();
   @override
   void paint(Canvas canvas, Size size) {
     final rect = Offset.zero & size;
     final gradient = RadialGradient(
-      center: Alignment.center,
       radius: radius,
       colors: const [Color(0xFFFF0000), Color(0xFFFFCCFF)],
       stops: const [0.2, 1],

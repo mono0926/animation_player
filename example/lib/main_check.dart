@@ -1,12 +1,11 @@
 import 'dart:math';
 
 import 'package:animation_player/animation_player.dart';
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 
 void main() => runApp(const App());
 
-class App extends StatelessWidget {
-  const App({super.key});
+class const App({super.key}) extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const MaterialApp(
@@ -15,8 +14,7 @@ class App extends StatelessWidget {
   }
 }
 
-class _Home extends StatelessWidget {
-  const _Home();
+class const _Home() extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -38,7 +36,7 @@ class _Home extends StatelessWidget {
                 ),
               ),
             ),
-//            child: SizedBox.expand(),
+            //            child: SizedBox.expand(),
           ),
         ),
       ),
@@ -46,12 +44,10 @@ class _Home extends StatelessWidget {
   }
 }
 
-class _Check extends CustomPainter {
-  _Check({
-    required this.progress,
-  }) : super();
-  final double progress;
-
+class _Check({
+  required final double progress,
+}) extends CustomPainter {
+  this : super();
   final _paint = Paint()
     ..strokeCap = StrokeCap.round
     ..style = PaintingStyle.stroke;
