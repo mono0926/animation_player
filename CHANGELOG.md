@@ -1,3 +1,8 @@
+## 3.0.1 - 2026-10-27
+
+### Documentation
+- Add dartdoc comments to public APIs to achieve full pub.dev documentation score
+
 ## 3.0.0 - 2026-10-27
 
 ### Breaking Changes
