@@ -1,3 +1,9 @@
+## 3.1.0 - 2026-11-12
+
+### Changes
+- Require Dart `^3.14.0` and Flutter `>=3.50.0`
+- Bump `progress_animation_builder` to `^3.1.0`
+
 ## 3.0.1 - 2026-10-27
 
 ### Documentation
